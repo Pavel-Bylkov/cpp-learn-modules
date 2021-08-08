@@ -1,6 +1,6 @@
 NAME = phonebook
 CC = clang++
-CFLAG = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror -std=c++98
 INCLUDES = PhoneBook.hpp Contact.hpp
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
 O_FILES = $(SRCS:.cpp=.o)

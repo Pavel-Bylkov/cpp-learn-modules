@@ -11,8 +11,7 @@ void    PhoneBook::add(void)
 {
 	s::print_line(50, '*');
 	std::cout << "ADD mode\n";
-	this->_book[this->count++].input_info();
-	this->count = this->count % 8;
+	this->_book[this->count++ % 8].input_info();
 }
 
 void	PhoneBook::_print_column(s::str field)
@@ -56,27 +55,22 @@ void   PhoneBook::_print_tabl(void)
 	}
 }
 
-int	PhoneBook::_input_index(void)
+void PhoneBook::_info_contact(void)
 {
 	int	index = 0;
 
-	while (index == 0)
-	{
-		std::cout << s::NOCOLOR << "Enter index: ";
-		std::cin >> index;
-		if (index > 8)
-		{
-			std::cout << s::RED << "Max index: 8\n" << s::NOCOLOR;
-			index = 0;
-		}
-		else if (index < 1)
-		{
-			std::cout << s::RED << "Min index: 1\n" << s::NOCOLOR;
-			index = 0;
-		}
-	}
-	std::cin.get();
-	return (index - 1);
+    std::cout << s::NOCOLOR << "Enter index: ";
+    if((std::cin >> std::noskipws >> index && index > 0 && index < 9
+        && index <= this->count && std::cin.get() == 10 ))
+    	this->_book[index - 1].print();
+    else
+    {
+        if(std::cin.eof())
+			std::exit(1);
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Incorrect index" << std::endl;
+    }
 }
 
 void   PhoneBook::search(void)
@@ -87,5 +81,5 @@ void   PhoneBook::search(void)
 	if (this->_book[0].get_first_name().empty())
 		std::cout << s::RED << "Contacts not found!\n" << s::NOCOLOR;
 	else
-		this->_book[this->_input_index()].print();
+		this->_info_contact();
 }

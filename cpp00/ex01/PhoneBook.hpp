@@ -15,6 +15,7 @@ class PhoneBook
 		void _print_column(s::str field);
 		void _print_tabl(void);
 		int _input_index(void);
+		void _info_contact(void);
 		Contact _book[8];
 };
 
