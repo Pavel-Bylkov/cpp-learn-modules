@@ -60,7 +60,7 @@ void PhoneBook::_info_contact(void)
 	int	index = 0;
 
     std::cout << s::NOCOLOR << "Enter index: ";
-    if((std::cin >> std::noskipws >> index && index > 0 && index < 9
+    if((std::cin  >> index && index > 0 && index < 9	// >> std::noskipws
         && index <= this->count && std::cin.get() == 10 ))
     	this->_book[index - 1].print();
     else
@@ -68,7 +68,7 @@ void PhoneBook::_info_contact(void)
         if(std::cin.eof())
 			std::exit(1);
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // std::cin.ignore(32767, '\n');
         std::cout << "Incorrect index" << std::endl;
     }
 }

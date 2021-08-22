@@ -2,7 +2,7 @@ NAME = zombies
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
 INCLUDES = Zombie.hpp
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp ZombieHorde.cpp Zombie.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)

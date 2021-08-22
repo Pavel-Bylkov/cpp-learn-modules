@@ -1,13 +1,12 @@
-NAME = zombies
+NAME = test_ref
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-INCLUDES = Zombie.hpp
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(O_FILES) $(INCLUDES)
+$(NAME): $(O_FILES)
 	$(CC) $(CFLAG) $(O_FILES) -o $(NAME)
 
 %.o: %.cpp
