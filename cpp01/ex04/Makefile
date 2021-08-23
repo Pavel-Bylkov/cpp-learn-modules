@@ -1,8 +1,8 @@
-NAME = buttle
+NAME = replace
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-INCLUDES = Weapon.hpp HumanA.hpp HumanB.hpp
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+INCLUDES = replace.hpp
+SRCS = main.cpp replace.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)

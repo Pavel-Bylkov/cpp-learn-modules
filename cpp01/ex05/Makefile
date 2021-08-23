@@ -1,8 +1,8 @@
-NAME = buttle
+NAME = karen_v2_0
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-INCLUDES = Weapon.hpp HumanA.hpp HumanB.hpp
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+INCLUDES = Karen.hpp
+SRCS = main.cpp Karen.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)
