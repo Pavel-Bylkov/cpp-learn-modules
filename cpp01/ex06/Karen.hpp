@@ -3,10 +3,12 @@
 
 # include <iostream>
 # include <string>
+# include <cstring>
 
 namespace s
 {
     typedef std::string str;
+    unsigned long long hash(const char *s1);
 }
 
 class Karen
@@ -19,6 +21,5 @@ private:
 public:
     void complain( s::str level );
 };
-
 
 #endif

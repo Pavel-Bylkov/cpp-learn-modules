@@ -1,6 +1,6 @@
 #include "Karen.hpp"
 
-int main(int ac, char *av[])
+int main( void )
 {
     Karen test = Karen();
 

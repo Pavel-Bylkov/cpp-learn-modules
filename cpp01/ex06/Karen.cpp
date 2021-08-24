@@ -1,5 +1,16 @@
 #include "Karen.hpp"
 
+unsigned long long s::hash(const char *s1)
+{
+    unsigned long long hash = 5381;
+    int c;
+
+    while ((c = *s1++))
+        hash = ((hash << 5) + hash) + c; // hash * 33 + c 
+
+    return hash;
+}
+
 void Karen::debug( void )
 {
     std::cout << "[ DEBUG ]" << std::endl;
