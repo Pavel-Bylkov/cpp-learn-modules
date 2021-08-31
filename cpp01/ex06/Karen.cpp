@@ -47,18 +47,19 @@ void Karen::error( void )
 
 void Karen::complain( s::str level )
 {
-    void (Karen::*memfunc_ptr)(void) = NULL;
+    void (Karen::*memfunc_ptr[4])(void) = {&Karen::debug,
+                                        &Karen::info,
+                                        &Karen::warning,
+                                        &Karen::error};
+    s::str levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    if (level == "DEBUG")
-        memfunc_ptr = &Karen::debug;
-    if (level == "INFO")
-        memfunc_ptr = &Karen::info;
-    if (level == "WARNING")
-        memfunc_ptr = &Karen::warning;
-    if (level == "ERROR")
-        memfunc_ptr = &Karen::error;
-    if (memfunc_ptr != NULL)
-        (this->*memfunc_ptr)();
-    else
-        std::cout << "I don't now this level!" << std::endl;
+    for (int i = 0; i < 4; ++i)
+    {
+        if (level == levels[i])
+        {
+            (this->*memfunc_ptr[i])();
+            return;
+        }
+    }
+    std::cout << "I don't now this level!" << std::endl;
 }

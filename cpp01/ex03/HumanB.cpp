@@ -2,7 +2,8 @@
 
 void HumanB::attack( void )
 {
-    std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
+    if (this->_weapon != NULL)
+        std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
 }
     
 HumanB::HumanB( std::string const & name ) : _name(name)
