@@ -1,8 +1,8 @@
-NAME = test1
+NAME = test2
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-INCLUDES = ClapTrap.hpp
-SRCS = main.cpp ClapTrap.cpp
+INCLUDES = ClapTrap.hpp ScavTrap.hpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)
