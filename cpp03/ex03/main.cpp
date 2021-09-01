@@ -1,9 +1,9 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main( void )
 {
-    FragTrap p("Petr");
-    FragTrap c;
+    DiamondTrap p("Petr");
+    DiamondTrap c;
 
     p.attack("Monster1");
     p.beRepaired(2);
@@ -14,6 +14,9 @@ int main( void )
     c.attack("Monster2");
     c.beRepaired(2);
     c.takeDamage(5);
+    c.guardGate();
+
+    c.whoAmI();
 
     return 0;
 }

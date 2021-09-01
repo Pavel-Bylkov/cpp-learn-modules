@@ -1,6 +1,6 @@
 NAME = test4
 CC = clang++
-CFLAG = -Wall -Wextra -Werror -std=c++98
+CFLAG = -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 INCLUDES = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 O_FILES = $(SRCS:.cpp=.o)
