@@ -28,14 +28,10 @@ Character::Character(Character const & other)
 
 Character::~Character()
 {
-    std::cout << "Character destructor for " << this->_name << std::endl;
     for (int i = 0; i < 4; i++)
     {
         if (this->_ms[i] != NULL)
-        {
-            std::cout << this->_ms[i]->getType() << " deleted\n";
             delete this->_ms[i];
-        }
     }
 }
     
@@ -48,6 +44,7 @@ Character & Character::operator=( Character const & other )
     {
         if (this->_ms[i])
             delete this->_ms[i];
+        this->_ms[i] = NULL;
     }
  
     this->_name = other._name;
@@ -56,8 +53,6 @@ Character & Character::operator=( Character const & other )
     {
         if (other._ms[i])
             this->_ms[i] = other._ms[i]->clone();
-        else
-            this->_ms[i] = NULL;
     }
     return *this;
 }

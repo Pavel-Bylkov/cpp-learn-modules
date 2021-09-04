@@ -19,14 +19,10 @@ MateriaSource::MateriaSource(MateriaSource const & other)
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "MateriaSource destructor\n";
     for (int i = 0; i < 4; i++)
     {
         if (this->_ms[i] != NULL)
-        {
-            std::cout << this->_ms[i]->getType() << " deleted\n";
             delete this->_ms[i];
-        }
     }
 }
 
@@ -46,8 +42,6 @@ MateriaSource & MateriaSource::operator=( MateriaSource const & other )
     {
         if (other._ms[i])
             this->_ms[i] = other._ms[i]->clone();
-        else
-            this->_ms[i] = NULL;
     }
     return *this;
 }
