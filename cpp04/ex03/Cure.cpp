@@ -14,7 +14,6 @@ Cure::Cure(Cure const & other) : AMateria(other)
 
 Cure::~Cure()
 {
-    std::cout << "Cure destructor\n";
 }
 
 Cure* Cure::clone() const

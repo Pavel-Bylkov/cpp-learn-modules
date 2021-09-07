@@ -14,7 +14,6 @@ Ice::Ice(Ice const & other) : AMateria(other)
 
 Ice::~Ice()
 {
-    std::cout << "Ice destructor\n";
 }
 
 Ice* Ice::clone() const
