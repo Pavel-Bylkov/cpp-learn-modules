@@ -19,4 +19,5 @@ public:
     virtual ~ShrubberyCreationForm();
     virtual void execute(Bureaucrat const & executor) const;
     void writeToFile(std::string const & fname, std::string const & str) const;
+    virtual AForm* clone() const;
 };

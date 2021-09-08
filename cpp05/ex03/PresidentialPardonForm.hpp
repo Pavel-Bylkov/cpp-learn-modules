@@ -17,4 +17,5 @@ public:
     PresidentialPardonForm(PresidentialPardonForm const & oth);
     virtual ~PresidentialPardonForm();
     virtual void execute(Bureaucrat const & executor) const;
+    virtual AForm* clone() const;
 };

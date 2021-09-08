@@ -1,8 +1,10 @@
-NAME = exception3
+NAME = exception4
 CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98
-INCLUDES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+INCLUDES = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp \
+			PresidentialPardonForm.hpp Intern.hpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp Intern.cpp
 O_FILES = $(SRCS:.cpp=.o)
 
 all: $(NAME)

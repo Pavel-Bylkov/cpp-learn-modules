@@ -18,4 +18,5 @@ public:
     RobotomyRequestForm(RobotomyRequestForm const & oth);
     virtual ~RobotomyRequestForm();
     virtual void execute(Bureaucrat const & executor) const;
+    virtual AForm* clone() const;
 };

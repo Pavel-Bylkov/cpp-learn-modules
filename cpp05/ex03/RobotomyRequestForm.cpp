@@ -39,3 +39,8 @@ bool RobotomyRequestForm::getResoult() const
     ++s_value;
     return (s_value % 2 == 0);
 }
+
+AForm* RobotomyRequestForm::clone() const
+{
+    return (new RobotomyRequestForm(this->getTarget()));
+}

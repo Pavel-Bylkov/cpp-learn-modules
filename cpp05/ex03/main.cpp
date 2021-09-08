@@ -1,8 +1,7 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp" 
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
+
+typedef AForm Form;
 
 int main ()
 {
@@ -10,38 +9,40 @@ int main ()
             Bureaucrat("Boss1", 1),
             Bureaucrat("Boss2", 45),
             Bureaucrat("Boss3", 148)};
+    Intern someRandomIntern;
+    Form* rrf;
 
-    ShrubberyCreationForm form1("home");
-    std::cout << form1 << " get\n";
-    RobotomyRequestForm form2("steel");
-    std::cout << form2 << " get\n";
-    PresidentialPardonForm form3("Barbara");
-    std::cout << form3 << " get\n";
-
-    AForm *forms[3] = {&form1, &form2, &form3};
+    std::cout << "\n------- Test mistake form ---------\n";
+    rrf = someRandomIntern.makeForm("new form", "Something");
     
+    Form *forms[3] = {someRandomIntern.makeForm("robotomy request", "Bender"),
+                     someRandomIntern.makeForm("shrubbery creation", "Home"),
+                     someRandomIntern.makeForm("presidential pardon", "Barbara")};
+    
+    std::cout << "\n------- Test normal forms ---------\n";
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
             std::cout << "\n----- loop for i = " << i << " j = " << j << " -----\n"; 
             std::cout << boss[i] << std::endl;
+            rrf = forms[j]->clone(); 
+            std::cout << *rrf << " get\n";
             try
             {
-                boss[i].signForm(*forms[j]);
-                boss[i].executeForm(*forms[j]);
+                boss[i].signForm(*rrf);
+                boss[i].executeForm(*rrf);
             }
             catch (std::exception& e)
             {
                 std::cerr << "exception caught: " << e.what() << '\n';
             }
+            delete rrf;
         }
     }
 
-    boss[0].executeForm(*forms[1]);
-    boss[0].executeForm(*forms[1]);
-    boss[0].executeForm(*forms[1]);
-    boss[0].executeForm(*forms[1]);
+    for (int i = 0; i < 3; i++)
+        delete forms[i];
 
     return 0;
 }

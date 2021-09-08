@@ -101,6 +101,7 @@ std::ostream & operator<<( std::ostream & o, AForm const & some)
     else
         o << some.getName() << " is not signed";
     o << ", grade to sign " << some.getGradeToSign()
-		<< ", grade to execute " << some.getGradeToExec();
+		<< ", grade to execute " << some.getGradeToExec()
+        << ", terget " << some.getTarget();
     return o;
 }

@@ -28,3 +28,8 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
     AForm::checkExec(executor);
     std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
+
+AForm* PresidentialPardonForm::clone() const
+{
+    return (new PresidentialPardonForm(this->getTarget()));
+}

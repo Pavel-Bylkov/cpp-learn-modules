@@ -58,3 +58,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     AForm::checkExec(executor);
     this->writeToFile(this->getTarget() + "_shrubbery", ascii_tree);
 }
+
+AForm* ShrubberyCreationForm::clone() const
+{
+    return (new ShrubberyCreationForm(this->getTarget()));
+}
