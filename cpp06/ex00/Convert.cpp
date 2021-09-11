@@ -173,6 +173,8 @@ void Convert::checkTypeCharInt()
             this->_type = "char";
         }
     }
+    else if (*pEnd != '.' && *pEnd != 'i' && *pEnd != 'n' && *pEnd != '-' && *pEnd != '+' && *pEnd != '\0')
+        throw std::runtime_error("non number");
     else if (*pEnd != '.' && *pEnd != 'i' && *pEnd != 'n' && *pEnd != '-' && *pEnd != '+')
     {
         if (errno == ERANGE || li < INT32_MIN || li > INT32_MAX)

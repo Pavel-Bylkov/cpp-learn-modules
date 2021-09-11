@@ -19,6 +19,8 @@ Base* generate(void)
 
 void identify(Base* p)
 {
+    if (p == NULL)
+        return;
     A *chA = dynamic_cast<A*>(p); 
     B *chB = dynamic_cast<B*>(p);
     C *chC = dynamic_cast<C*>(p);
@@ -34,6 +36,8 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
+    if ((void *)&p == NULL)
+        return;
     try
     {
         A &chA = dynamic_cast<A &>(p);
