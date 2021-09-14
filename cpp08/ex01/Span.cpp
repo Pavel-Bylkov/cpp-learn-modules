@@ -28,29 +28,29 @@ void Span::addNumber(int const & number)
     _array.push_back(number);
 }
 
-int Span::shortestSpan()
+long int Span::shortestSpan()
 {
     if (_array.size() < 2)
         throw std::range_error("Error: no span to find.");
     _array.sort();
-    int min_span = *(_array.end()) - *(_array.begin());
+    long int min_span = static_cast<long int>(_array.back()) - _array.front();
     std::list<int>::iterator	it2 = _array.begin();
     it2++;
     for (std::list<int>::iterator	it1 = _array.begin(); it2 != _array.end(); it1++)
     {
-        if (*it2 - *it1 < min_span)
-            min_span = *it2 - *it1;
+        if (static_cast<long int>(*it2) - *it1 < min_span)
+            min_span = static_cast<long int>(*it2) - *it1;
         it2++;
     }
     return min_span;
 }
 
-int Span::longestSpan()
+long int Span::longestSpan()
 {
     if (_array.size() < 2)
         throw std::range_error("Error: no span to find.");
     _array.sort();
-    return (_array.back() - _array.front());
+    return (static_cast<long int>(_array.back()) - static_cast<long int>(_array.front()));
 }
 
 int& Span::operator[](long int const & index) 

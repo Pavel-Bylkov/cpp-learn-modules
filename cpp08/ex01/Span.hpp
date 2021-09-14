@@ -15,8 +15,8 @@ public:
     Span & operator=(Span const & oth);
 
     void addNumber(int const & number);
-    int shortestSpan();
-    int longestSpan();
+    long int shortestSpan();
+    long int longestSpan();
 
     template<typename T> 
     void addNumber(T it_bg, T it_end)

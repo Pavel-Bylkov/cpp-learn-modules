@@ -45,10 +45,10 @@ void replace(T & array, int search, int newValue)
 template<class T> 
 void genArray(T & array, int size)
 {
-    for (int i=1;i<=size;i++) 
+    for (int i = -size / 2; i < size / 2; i++) 
     {
         array.push_back(i);
         std::cout << i << " ";
     }
-    std::cout <<  std::endl;
+    std::cout << std::endl;
 }
